@@ -1,91 +1,144 @@
-<img src="https://datasette.io/static/datasette-logo.svg" alt="Datasette">
-
-[![PyPI](https://img.shields.io/pypi/v/datasette.svg)](https://pypi.org/project/datasette/)
-[![Changelog](https://img.shields.io/github/v/release/simonw/datasette?label=changelog)](https://docs.datasette.io/en/latest/changelog.html)
-[![Python 3.x](https://img.shields.io/pypi/pyversions/datasette.svg?logo=python&logoColor=white)](https://pypi.org/project/datasette/)
-[![Tests](https://github.com/simonw/datasette/workflows/Test/badge.svg)](https://github.com/simonw/datasette/actions?query=workflow%3ATest)
-[![Documentation Status](https://readthedocs.org/projects/datasette/badge/?version=latest)](https://docs.datasette.io/en/latest/?badge=latest)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/simonw/datasette/blob/main/LICENSE)
-[![docker: datasette](https://img.shields.io/badge/docker-datasette-blue)](https://hub.docker.com/r/datasetteproject/datasette)
-[![discord](https://img.shields.io/discord/823971286308356157?label=discord)](https://datasette.io/discord)
-
-*An open source multi-tool for exploring and publishing data*
-
-Datasette is a tool for exploring and publishing data. It helps people take data of any shape or size and publish that as an interactive, explorable website and accompanying API.
-
-Datasette is aimed at data journalists, museum curators, archivists, local governments, scientists, researchers and anyone else who has data that they wish to share with the world.
-
-[Explore a demo](https://global-power-plants.datasettes.com/global-power-plants/global-power-plants), watch [a video about the project](https://simonwillison.net/2021/Feb/7/video/) or try it out by [uploading and publishing your own CSV data](https://docs.datasette.io/en/stable/getting_started.html#try-datasette-without-installing-anything-using-glitch).
-
-* [datasette.io](https://datasette.io/) is the official project website
-* Latest [Datasette News](https://datasette.io/news)
-* Comprehensive documentation: https://docs.datasette.io/
-* Examples: https://datasette.io/examples
-* Live demo of current `main` branch: https://latest.datasette.io/
-* Questions, feedback or want to talk about the project? Join our [Discord](https://datasette.io/discord)
-
-Want to stay up-to-date with the project? Subscribe to the [Datasette newsletter](https://datasette.substack.com/) for tips, tricks and news on what's new in the Datasette ecosystem.
-
-## Installation
-
-If you are on a Mac, [Homebrew](https://brew.sh/) is the easiest way to install Datasette:
-
-    brew install datasette
-
-You can also install it using `pip` or `pipx`:
-
-    pip install datasette
-
-Datasette requires Python 3.8 or higher. We also have [detailed installation instructions](https://docs.datasette.io/en/stable/installation.html) covering other options such as Docker.
-
-## Basic usage
-
-    datasette serve path/to/database.db
-
-This will start a web server on port 8001 - visit http://localhost:8001/ to access the web interface.
-
-`serve` is the default subcommand, you can omit it if you like.
-
-Use Chrome on OS X? You can run datasette against your browser history like so:
-
-     datasette ~/Library/Application\ Support/Google/Chrome/Default/History --nolock
-
-Now visiting http://localhost:8001/History/downloads will show you a web interface to browse your downloads data:
-
-![Downloads table rendered by datasette](https://static.simonwillison.net/static/2017/datasette-downloads.png)
-
-## metadata.json
-
-If you want to include licensing and source information in the generated datasette website you can do so using a JSON file that looks something like this:
-
-    {
-        "title": "Five Thirty Eight",
-        "license": "CC Attribution 4.0 License",
-        "license_url": "http://creativecommons.org/licenses/by/4.0/",
-        "source": "fivethirtyeight/data on GitHub",
-        "source_url": "https://github.com/fivethirtyeight/data"
-    }
-
-Save this in `metadata.json` and run Datasette like so:
-
-    datasette serve fivethirtyeight.db -m metadata.json
-
-The license and source information will be displayed on the index page and in the footer. They will also be included in the JSON produced by the API.
-
-## datasette publish
-
-If you have [Heroku](https://heroku.com/) or [Google Cloud Run](https://cloud.google.com/run/) configured, Datasette can deploy one or more SQLite databases to the internet with a single command:
-
-    datasette publish heroku database.db
-
-Or:
-
-    datasette publish cloudrun database.db
-
-This will create a docker image containing both the datasette application and the specified SQLite database files. It will then deploy that image to Heroku or Cloud Run and give you a URL to access the resulting website and API.
-
-See [Publishing data](https://docs.datasette.io/en/stable/publish.html) in the documentation for more details.
-
-## Datasette Lite
-
-[Datasette Lite](https://lite.datasette.io/) is Datasette packaged using WebAssembly so that it runs entirely in your browser, no Python web application server required. Read more about that in the [Datasette Lite documentation](https://github.com/simonw/datasette-lite/blob/main/README.md).
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/54ff21b276a47e54824527ad7d85f268d7d0ba3d2ee31d906a82248f62bf8f81/68747470733a2f2f6461746173657474652e696f2f7374617469632f6461746173657474652d6c6f676f2e737667"><img src="https://camo.githubusercontent.com/54ff21b276a47e54824527ad7d85f268d7d0ba3d2ee31d906a82248f62bf8f81/68747470733a2f2f6461746173657474652e696f2f7374617469632f6461746173657474652d6c6f676f2e737667" alt="数据集" data-canonical-src="https://datasette.io/static/datasette-logo.svg" style="max-width: 100%;"></a></p>
+<p dir="auto"><a href="https://pypi.org/project/datasette/" rel="nofollow"><img src="https://camo.githubusercontent.com/2a736629bd34f0c189e6c5f96b67811e97d961ba0ca8de116c82a0a42581a11f/68747470733a2f2f696d672e736869656c64732e696f2f707970692f762f6461746173657474652e737667" alt="吡啶甲酸" data-canonical-src="https://img.shields.io/pypi/v/datasette.svg" style="max-width: 100%;"></a>
+<a href="https://docs.datasette.io/en/latest/changelog.html" rel="nofollow"><img src="https://camo.githubusercontent.com/d8a3377bcc2dcdd1ebc0658927e639c1541e8664bc6cc01e719a78bce27383bd/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f762f72656c656173652f73696d6f6e772f6461746173657474653f6c6162656c3d6368616e67656c6f67" alt="更新日志" data-canonical-src="https://img.shields.io/github/v/release/simonw/datasette?label=changelog" style="max-width: 100%;"></a>
+<a href="https://pypi.org/project/datasette/" rel="nofollow"><img src="https://camo.githubusercontent.com/4692dc6ad54ef497cdc812c4a1718d2885d8b7342e59f8f2c52659f4e522625b/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f6461746173657474652e7376673f6c6f676f3d707974686f6e266c6f676f436f6c6f723d7768697465" alt="Python 3.x" data-canonical-src="https://img.shields.io/pypi/pyversions/datasette.svg?logo=python&amp;logoColor=white" style="max-width: 100%;"></a>
+<a href="https://github.com/simonw/datasette/actions?query=workflow%3ATest"><img src="https://github.com/simonw/datasette/workflows/Test/badge.svg" alt="测试" style="max-width: 100%;"></a>
+<a href="https://docs.datasette.io/en/latest/?badge=latest" rel="nofollow"><img src="https://camo.githubusercontent.com/f6c3f43c250f9a962f13286497c2ec43d9c26a1b37e93a1358cc8f637a9ef291/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f6461746173657474652f62616467652f3f76657273696f6e3d6c6174657374" alt="文档状态" data-canonical-src="https://readthedocs.org/projects/datasette/badge/?version=latest" style="max-width: 100%;"></a>
+<a href="https://github.com/simonw/datasette/blob/main/LICENSE"><img src="https://camo.githubusercontent.com/8b67f2d51530fac6fddb08752398ad6a59a18e3a55b334a1cea0217f8c331d47/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d417061636865253230322e302d626c75652e737667" alt="执照" data-canonical-src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" style="max-width: 100%;"></a>
+<a href="https://hub.docker.com/r/datasetteproject/datasette" rel="nofollow"><img src="https://camo.githubusercontent.com/3ed95e9d49a1addb96adc262f6504f163bc341a661f2b28ee8fc0d47114b9014/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f646f636b65722d6461746173657474652d626c7565" alt="docker：datatte" data-canonical-src="https://img.shields.io/badge/docker-datasette-blue" style="max-width: 100%;"></a>
+<a href="https://datasette.io/discord" rel="nofollow"><img src="https://camo.githubusercontent.com/23b38378bd229ee470876a012bde2acfc27234f00bca7ebe0f5114bb7c1556a6/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f3832333937313238363330383335363135373f6c6162656c3d646973636f7264" alt="不和谐" data-canonical-src="https://img.shields.io/discord/823971286308356157?label=discord" style="max-width: 100%;"></a></p>
+<p dir="auto"><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于探索和发布数据的开源多功能工具</font></font></em></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Datasette 是一款用于探索和发布数据的工具。它可以帮助人们获取任何形状或大小的数据并将其发布为交互式、可探索的网站和随附的 API。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Datasette 面向数据记者、博物馆馆长、档案管理员、地方政府、科学家、研究人员以及任何希望与世界分享数据的人。</font></font></p>
+<p dir="auto"><a href="https://global-power-plants.datasettes.com/global-power-plants/global-power-plants" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">探索演示</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、观看</font></font><a href="https://simonwillison.net/2021/Feb/7/video/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关该项目的视频或通过</font></font></a><font style="vertical-align: inherit;"></font><a href="https://docs.datasette.io/en/stable/getting_started.html#try-datasette-without-installing-anything-using-glitch" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上传和发布您自己的 CSV 数据</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">进行尝试</font><font style="vertical-align: inherit;">。</font></font></p>
+<ul dir="auto">
+<li><a href="https://datasette.io/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">datasette.io</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是官方项目网站</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最新</font></font><a href="https://datasette.io/news" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Datasette 新闻</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">综合文档：&nbsp; </font></font><a href="https://docs.datasette.io/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://docs.datasette.io/</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">示例：</font></font><a href="https://datasette.io/examples" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://datasette.io/examples</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当前分支的现场演示</font></font><code>main</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><a href="https://latest.datasette.io/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://latest.datasette.io/</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有疑问、反馈或想讨论项目？加入我们的</font></font><a href="https://datasette.io/discord" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Discord</font></font></a></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">想要了解项目的最新动态？订阅</font></font><a href="https://datasette.substack.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Datasette 新闻通讯</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，获取有关 Datasette 生态系统最新动态的提示、技巧和新闻。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装</font></font></h2><a id="user-content-installation" class="anchor" aria-label="固定链接：安装" href="#installation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您使用的是 Mac，</font></font><a href="https://brew.sh/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Homebrew</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是安装 Datasette 最简单的方法：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>brew install datasette
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="brew install datasette" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您也可以使用</font></font><code>pip</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或安装它</font></font><code>pipx</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>pip install datasette
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="pip install datasette" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Datasette 需要 Python 3.8 或更高版本。我们还提供了</font></font><a href="https://docs.datasette.io/en/stable/installation.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">详细的安装说明</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，涵盖了 Docker 等其他选项。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基本用法</font></font></h2><a id="user-content-basic-usage" class="anchor" aria-label="永久链接：基本用法" href="#basic-usage"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>datasette serve path/to/database.db
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="datasette serve path/to/database.db" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这将在端口 8001 上启动一个 Web 服务器 - 访问</font></font><a href="http://localhost:8001/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://localhost:8001/</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">即可访问 Web 界面。</font></font></p>
+<p dir="auto"><code>serve</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是默认子命令，如果愿意，可以省略它。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 OS X 上使用 Chrome？您可以针对浏览器历史记录运行 datasette，如下所示：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code> datasette ~/Library/Application\ Support/Google/Chrome/Default/History --nolock
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value=" datasette ~/Library/Application\ Support/Google/Chrome/Default/History --nolock" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在访问</font></font><a href="http://localhost:8001/History/downloads" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://localhost:8001/History/downloads</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将显示一个用于浏览下载数据的 Web 界面：</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/145ff359e2964fd65797a2869c2fa924f9caf9bed58954a28dcbfd530d6618c3/68747470733a2f2f7374617469632e73696d6f6e77696c6c69736f6e2e6e65742f7374617469632f323031372f6461746173657474652d646f776e6c6f6164732e706e67"><img src="https://camo.githubusercontent.com/145ff359e2964fd65797a2869c2fa924f9caf9bed58954a28dcbfd530d6618c3/68747470733a2f2f7374617469632e73696d6f6e77696c6c69736f6e2e6e65742f7374617469632f323031372f6461746173657474652d646f776e6c6f6164732e706e67" alt="由 datasette 呈现的下载表" data-canonical-src="https://static.simonwillison.net/static/2017/datasette-downloads.png" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元数据.json</font></font></h2><a id="user-content-metadatajson" class="anchor" aria-label="永久链接：metadata.json" href="#metadatajson"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您想在生成的数据集网站中包含许可和源信息，您可以使用如下所示的 JSON 文件来实现：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>{
+    "title": "Five Thirty Eight",
+    "license": "CC Attribution 4.0 License",
+    "license_url": "http://creativecommons.org/licenses/by/4.0/",
+    "source": "fivethirtyeight/data on GitHub",
+    "source_url": "https://github.com/fivethirtyeight/data"
+}
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="{
+    &quot;title&quot;: &quot;Five Thirty Eight&quot;,
+    &quot;license&quot;: &quot;CC Attribution 4.0 License&quot;,
+    &quot;license_url&quot;: &quot;http://creativecommons.org/licenses/by/4.0/&quot;,
+    &quot;source&quot;: &quot;fivethirtyeight/data on GitHub&quot;,
+    &quot;source_url&quot;: &quot;https://github.com/fivethirtyeight/data&quot;
+}" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">保存</font></font><code>metadata.json</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并运行 Datasette，如下所示：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>datasette serve fivethirtyeight.db -m metadata.json
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="datasette serve fivethirtyeight.db -m metadata.json" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许可证和来源信息将显示在索引页和页脚中。它们也将包含在 API 生成的 JSON 中。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数据集发布</font></font></h2><a id="user-content-datasette-publish" class="anchor" aria-label="永久链接：datasette 发布" href="#datasette-publish"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您配置了</font></font><a href="https://heroku.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Heroku</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><a href="https://cloud.google.com/run/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Google Cloud Run</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，Datasette 可以使用单个命令将一个或多个 SQLite 数据库部署到互联网：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>datasette publish heroku database.db
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="datasette publish heroku database.db" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或者：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>datasette publish cloudrun database.db
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="datasette publish cloudrun database.db" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这将创建一个包含 datasette 应用程序和指定的 SQLite 数据库文件的 docker 镜像。然后它会将该镜像部署到 Heroku 或 Cloud Run，并为您提供一个 URL 来访问生成的网站和 API。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关更多详细信息，请参阅</font><font style="vertical-align: inherit;">文档中的</font></font><a href="https://docs.datasette.io/en/stable/publish.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发布数据。</font></font></a><font style="vertical-align: inherit;"></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数据集精简版</font></font></h2><a id="user-content-datasette-lite" class="anchor" aria-label="永久链接：Datasette Lite" href="#datasette-lite"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://lite.datasette.io/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Datasette Lite</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是使用 WebAssembly 打包的 Datasette，因此它完全在您的浏览器中运行，无需 Python Web 应用程序服务器。有关更多信息，请参阅</font></font><a href="https://github.com/simonw/datasette-lite/blob/main/README.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Datasette Lite 文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+</article></div>
